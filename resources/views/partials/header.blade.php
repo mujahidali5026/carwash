@@ -33,30 +33,33 @@
             <button class="nav-btn {{ activeRoute('washes') }}" onclick="window.location.href='{{ route('washes') }}'">
                 🚗 Record Wash
             </button>
+            @auth
+                @if (auth()->user()->isAdmin())
+                    <button class="nav-btn {{ activeRoute('dashboard') }}"
+                        onclick="window.location.href='{{ route('dashboard') }}'">
+                        📊 Dashboard
+                    </button>
 
-            <button class="nav-btn {{ activeRoute('dashboard') }}"
-                onclick="window.location.href='{{ route('dashboard') }}'">
-                📊 Dashboard
-            </button>
+                    <button class="nav-btn {{ activeRoute('vehicles') }}"
+                        onclick="window.location.href='{{ route('vehicles') }}'">
+                        👥 Vehicles
+                    </button>
 
-            <button class="nav-btn {{ activeRoute('vehicles') }}"
-                onclick="window.location.href='{{ route('vehicles') }}'">
-                👥 Vehicles
-            </button>
+                    <button class="nav-btn {{ activeRoute('companies') }}"
+                        onclick="window.location.href='{{ route('companies') }}'">
+                        🏢 Companies
+                    </button>
 
-            <button class="nav-btn {{ activeRoute('companies') }}"
-                onclick="window.location.href='{{ route('companies') }}'">
-                🏢 Companies
-            </button>
+                    <button class="nav-btn {{ activeRoute('reports.index') }}"
+                        onclick="window.location.href='{{ route('reports.index') }}'">
+                        📅 Reports
+                    </button>
 
-            <button class="nav-btn {{ activeRoute('reports.index') }}"
-                onclick="window.location.href='{{ route('reports.index') }}'">
-                📅 Reports
-            </button>
-
-            <button class="nav-btn" onclick="window.location.href='{{ route('import.form') }}'">
-                📥 CSV Import
-            </button>
+                    <button class="nav-btn" onclick="window.location.href='{{ route('import.form') }}'">
+                        📥 CSV Import
+                    </button>
+                @endif
+            @endauth
             <button class="nav-btn" onclick="window.location.href='{{ route('logout') }}'">
                 🔐 Logout
             </button>
