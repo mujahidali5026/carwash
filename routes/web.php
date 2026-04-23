@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
         // routes/web.php
         Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
         Route::get('/reports/data', [ReportController::class, 'data'])->name('reports.data');
+        Route::get('/reports/companies', [ReportController::class, 'companies'])->name('reports.companies');
 
         Route::get('/import', [ImportController::class, 'showForm'])->name('import.form');
         Route::post('/import', [ImportController::class, 'import'])->name('import.process');
